@@ -35,7 +35,7 @@ addButton.addEventListener('click', () =>{
 
     const pages = document.createElement("div");
     pages.classList.add("pages");
-    pages.innerText = `Pages: ${pagesInput.value}`;
+    pages.innerText = `# of pages: ${pagesInput.value}`;
     pagesInput.value = '';
     card.appendChild(pages);
 
@@ -59,7 +59,13 @@ addButton.addEventListener('click', () =>{
     })
 
     read.addEventListener('click', () => {
-        bookRead.innerText = "Read: Yes";
+        if(bookRead.innerText == "Read: Yes"){
+            bookRead.innerText = "Read: No";
+        }
+        else{
+            bookRead.innerText = "Read: Yes";
+        }
+
     })
 
 

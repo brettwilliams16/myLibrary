@@ -19,10 +19,16 @@ body {
     background-color: rgb(219, 212, 212);
     height: 100%;
     width: 100%;
-    display: flex;
+
+    /* display: flex;
     flex-direction: column;
+    flex-wrap: nowrap; */
+    padding: 10px;
+
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    grid-template-rows: repeat(1fr, 15);
     max-width: 250px;
-    flex-wrap: nowrap;
 }
 
 .side-bar button {
@@ -35,8 +41,10 @@ body {
 }
 
 .header{
+    color: white;
+    box-shadow: 0 0 0 rgb(219, 212, 212);
     grid-row: 1;
-    grid-column: 2;
+    grid-column: 1 / -1;
     width: 100%;
     background-color: rgb(113, 111, 111);
     display: flex;
@@ -61,6 +69,10 @@ body {
     position: relative;
     display: grid;
     grid-template-rows: repeat(1fr, 4);
+}
+
+.remove:hover, .read:hover{
+    padding: 5px;
 }
 
 .main-section .bookRead {
@@ -112,9 +124,6 @@ fieldset {
     position: relative;
 }
 
-.titleLabel {
-    margin-top: 10px;
-}
 
 .yes, .no{
     position: absolute;
@@ -128,3 +137,14 @@ fieldset {
     left: 10%;
 }
 
+button {
+    border-radius: 10px;
+    border: none;
+}
+
+.add-button:hover, .delete:hover, .read:hover{
+    background-color: black;
+    color: white;
+    transition: .5s ease;
+    cursor: pointer;
+}
