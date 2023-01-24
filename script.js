@@ -1,5 +1,8 @@
 const mainSection = document.querySelector(".main-section");
 const addButton = document.querySelector(".add-button");
+let titleInput = document.querySelector('input[name=title');
+let authorInput = document.querySelector('input[name=author');
+let pagesInput = document.querySelector('input[name=pages');
 
 function Book(title, author, pages, read) {
     this.title = title;
@@ -12,20 +15,36 @@ function Book(title, author, pages, read) {
 }
 
 addButton.addEventListener('click', () =>{
+
+    if(titleInput.value == '' || authorInput.value == '' || pagesInput.value == ''){
+        return;
+    }
     const card = document.createElement("div");
-    card.classList.add("test");
+    card.classList.add("book");
     const title = document.createElement("div");
     title.classList.add("title");
-    title.textContent = "Title_Test";
+    title.innerText = `Title: ${titleInput.value}`;
+    titleInput.value = '';
     card.appendChild(title);
+
     const author = document.createElement("div");
     author.classList.add("author");
-    author.textContent = "Author_Test";
+    author.innerText = `Author: ${authorInput.value}`;
+    authorInput.value = '';
     card.appendChild(author);
+
     const pages = document.createElement("div");
     pages.classList.add("pages");
-    pages.textContent = "Pages_Test"
+    pages.innerText = `Pages: ${pagesInput.value}`;
+    pagesInput.value = '';
     card.appendChild(pages);
+
+    const bookRead = document.createElement("div");
+    const bookReadInput = document.querySelector("input[name=bookRead]:checked");
+    bookRead.classList.add("bookRead");
+    bookRead.innerText = `Read: ${bookReadInput.value}`;
+    card.appendChild(bookRead);
+    
 
     const read = document.createElement("button");
     const remove = document.createElement("button");
@@ -37,6 +56,10 @@ addButton.addEventListener('click', () =>{
     remove.addEventListener('click', ()=>{
         let removeParent = remove.parentElement;
         removeParent.parentElement.removeChild(removeParent);
+    })
+
+    read.addEventListener('click', () => {
+        bookRead.innerText = "Read: Yes";
     })
 
 
