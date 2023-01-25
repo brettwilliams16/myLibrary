@@ -4,6 +4,8 @@ let titleInput = document.querySelector('input[name=title');
 let authorInput = document.querySelector('input[name=author');
 let pagesInput = document.querySelector('input[name=pages');
 
+let myBooks = new Array();
+
 function Book(title, author, pages, read) {
     this.title = title;
     this.author = author;
@@ -24,18 +26,22 @@ addButton.addEventListener('click', () =>{
     const title = document.createElement("div");
     title.classList.add("title");
     title.innerText = `Title: ${titleInput.value}`;
+    let bookTitle = `${titleInput.value}`;
+    console.log(bookTitle);
     titleInput.value = '';
     card.appendChild(title);
 
     const author = document.createElement("div");
     author.classList.add("author");
     author.innerText = `Author: ${authorInput.value}`;
+    let bookAuthor = `${authorInput.value}`;
     authorInput.value = '';
     card.appendChild(author);
 
     const pages = document.createElement("div");
     pages.classList.add("pages");
     pages.innerText = `# of pages: ${pagesInput.value}`;
+    let bookPages = `${pagesInput.value}`;
     pagesInput.value = '';
     card.appendChild(pages);
 
@@ -43,6 +49,7 @@ addButton.addEventListener('click', () =>{
     const bookReadInput = document.querySelector("input[name=bookRead]:checked");
     bookRead.classList.add("bookRead");
     bookRead.innerText = `Read: ${bookReadInput.value}`;
+    let hasBookBeenRead = `${bookReadInput.value}`;
     card.appendChild(bookRead);
     
 
@@ -66,13 +73,17 @@ addButton.addEventListener('click', () =>{
             bookRead.innerText = "Read: Yes";
         }
 
+    
     })
 
-
+    let book = new Book(bookTitle, bookAuthor, bookPages, hasBookBeenRead);
+    myBooks.push(book);
 
     card.appendChild(read);
     card.appendChild(remove);
 
     mainSection.appendChild(card);
+
+    
 });
 
