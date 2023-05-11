@@ -1,0 +1,23 @@
+{
+  "name": "mylibrary",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brettwilliams16/myLibrary.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/brettwilliams16/myLibrary/issues"
+  },
+  "homepage": "https://github.com/brettwilliams16/myLibrary#readme",
+  "dependencies": {
+    "prettier": "2.8.8"
+  }
+}
